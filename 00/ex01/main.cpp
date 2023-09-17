@@ -6,15 +6,21 @@ int	main()
 {
 	std::string	input;
 	PhoneBook	book;
+	int	i = 0;
 
 	while (1)
 	{
 		std::cout << ">>";
 		getline(std::cin, input);
 		if (input == "ADD")
-			book.add();
-		else if (input == "SEARCH")
-			std::cout << "searchhhh" << std::endl;
+		{
+			book.add(i);
+			i++;
+		}
+		if (input == "SEARCH")
+		{
+			book.search();
+		}
 		else if (input == "EXIT")
 			std::cout << "exittttt" << std::endl;
 		break;
