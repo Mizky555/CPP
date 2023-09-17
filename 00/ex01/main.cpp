@@ -25,12 +25,12 @@ class	Contact
 
 void	Contact::add_firstname(std::string str)
 {
-	this->firstname = str;
+	Contact::firstname = str;
 }
 
 void	Contact::add_lastname(std::string str)
 {
-	this->lastname = str;
+	Contact::lastname = str;
 }
 
 void	Contact::add_nickname(std::string str)
@@ -48,10 +48,10 @@ std::string	Contact::get_firstname(void)
 	return (this->firstname);
 }
 
-// std::string	Contact::get_lastname(void)
-// {
-// 	std::cout << "Test lastname : " << lastname << std::endl;
-// }
+std::string	Contact::get_lastname(void)
+{
+	std::cout << "Test lastname : " << lastname << std::endl;
+}
 
 class	PhoneBook
 {
@@ -67,7 +67,6 @@ class	PhoneBook
 void	PhoneBook::add(void)
 {
 	std::string	str;
-	Contact contacts;
 
 	std::cout << "Enter First Name : ";
 	getline(std::cin, str);
@@ -81,7 +80,7 @@ void	PhoneBook::add(void)
 	std::cout << "Enter Phonenumber : ";
 	getline(std::cin, str);
 	this->contacts[0].add_phonenumber(str);
-	std::cout << contacts.get_firstname() << std::endl;
+	std::cout << this->contacts[0].get_firstname() << std::endl;
 }
 int	main()
 {
