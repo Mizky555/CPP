@@ -12,7 +12,7 @@ class	PhoneBook
 		void	add(int i);
 		int	check_str(std::string str);
 		int	check_digit(std::string str);
-		void	search(void);
+		void	search(int i);
 
 };
 

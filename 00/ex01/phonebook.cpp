@@ -5,6 +5,7 @@
 #include "phonebook.hpp"
 
 
+
 int	PhoneBook::check_digit(std::string str)
 {
 	int	i = 0;
@@ -73,15 +74,20 @@ void	PhoneBook::add(int i)
 }
 
 
-void	PhoneBook::search(void)
+void	PhoneBook::search(int i)
 {
-	std::string str = this->contacts[1].get_firstname();
+	// int index = 0;
+	std::string str = this->contacts[i].get_firstname();
 
-	for (int i = 0 ; i <= 7 ; i++)
-	{
+	std::cout << "---------------------------------------------" << std::endl;
+	std::cout << "|" << std::setw(10) << std::right << "Index" << "|"
+					 << std::setw(10) << std::right << "Fisrt name" << "|"
+					 << std::setw(10) << std::right << "Last name" << "|"
+					 << std::setw(10) << std::right << "Nick name" << "|" << std:: endl;
+	std::cout << "---------------------------------------------" << std::endl;
 
-			std::cout << "test" << std::endl;
-	}
+
+
 	// for (int i = 0; i <= 7; i++)
     // {
     //     std::cout

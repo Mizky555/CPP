@@ -19,7 +19,7 @@ int	main()
 		}
 		else if (input == "SEARCH")
 		{
-			book.search();
+			book.search(i);
 		}
 		else if (input == "EXIT")
 		{
