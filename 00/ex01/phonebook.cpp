@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cctype>
 #include <iomanip>
+#include <string>
 #include "phonebook.hpp"
 
 
@@ -74,13 +75,22 @@ void	PhoneBook::add(int i)
 
 void	PhoneBook::search(void)
 {
-	for (int i = 0; i <= 7; i++)
-    {
-        std::cout << "|" << std::setw(10) << std::right << this->contacts[0].get_firstname() << "|"
-                  << std::setw(10) << std::right << this->contacts[0].get_lastname() << "|"
-                  << std::setw(10) << std::right << this->contacts[0].get_nickname() << "|"
-				  << std::setw(10) << std::right << this->contacts[0].get_phonenumber() << "|" << std::endl;
-    }
+	std::string str = this->contacts[1].get_firstname();
+
+	for (int i = 0 ; i <= 7 ; i++)
+	{
+
+			std::cout << "test" << std::endl;
+	}
+	// for (int i = 0; i <= 7; i++)
+    // {
+    //     std::cout
+	// 			  << "|" << std::setw(10) << std::right << i + 1 << "|"
+    //               << std::setw(10) << std::right << this->contacts[i].get_firstname() << "|"
+    //               << std::setw(10) << std::right << this->contacts[i].get_lastname() << "|"
+    //               << std::setw(10) << std::right << this->contacts[i].get_nickname() << "|" << std::endl;
+    // }
+
 }
 // void	PhoneBook::add(int i)
 // {

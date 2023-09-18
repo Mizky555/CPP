@@ -17,12 +17,14 @@ int	main()
 			book.add(i);
 			i++;
 		}
-		if (input == "SEARCH")
+		else if (input == "SEARCH")
 		{
 			book.search();
 		}
 		else if (input == "EXIT")
+		{
 			std::cout << "exittttt" << std::endl;
-		break;
+			break;
+		}
 	}
 }
