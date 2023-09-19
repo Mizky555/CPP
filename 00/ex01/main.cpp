@@ -10,18 +10,23 @@ int	main()
 
 	while (1)
 	{
-		std::cout << ">>";
+		std::cout << "-------MENU-----" << std::endl;
+		std::cout << "1.ADD" << std::endl;
+		std::cout << "2.SEARCH" << std::endl;
+		std::cout << "3.EXIT" << std::endl;
+		std::cout << "----------------" << std::endl;
+		std::cout << "Select menu number >> ";
 		getline(std::cin, input);
-		if (input == "ADD")
+		if (input == "1")
 		{
 			book.add(i);
 			i++;
 		}
-		else if (input == "SEARCH")
+		else if (input == "2")
 		{
 			book.search(i);
 		}
-		else if (input == "EXIT")
+		else if (input == "3")
 		{
 			std::cout << "exittttt" << std::endl;
 			break;

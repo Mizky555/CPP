@@ -13,6 +13,8 @@ class	PhoneBook
 		int	check_str(std::string str);
 		int	check_digit(std::string str);
 		void	search(int i);
+		void	print(std::string str);
+		void	open_data(int i);
 
 };
 

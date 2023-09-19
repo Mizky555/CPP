@@ -70,39 +70,96 @@ void	PhoneBook::add(int i)
 		getline(std::cin, str);
 	}
 	this->contacts[i % 8].add_phonenumber(str);
-
 }
 
+void	cut_str(std::string str)
+{
+	int	len = str.length();
+	int	i;
+
+	if (len <= 10)
+	{
+		for (i = 1 ; i <= (10 - len) ; i++)
+			std::cout << " ";
+		for (i = 0 ; i <= len ; i++)
+			std::cout << str[i];
+	}
+	else
+	{
+		for (i = 0 ; i <=9 ; i++)
+			{
+				if (i == 9)
+					std::cout << ".";
+				else
+					std::cout << str[i];
+			}
+	}
+}
+
+void	PhoneBook::open_data(void)
+{
+	std::string	index;
+	std::string str;
+
+	getline(std::cin, index);
+	str = this->contacts[index].get_lastname();
+	for (int i = 0 ; i <= 3 ; i++)
+	{
+	}
+}
 
 void	PhoneBook::search(int i)
 {
-	// int index = 0;
-	std::string str = this->contacts[i].get_firstname();
+	std::string str;
 
+	if (i == 0)
+	{
+		std::cout << "*********" << std::endl;
+		std::cout << "**Empty**" << std::endl;
+		std::cout << "*********" << std::endl;
+		return ;
+	}
 	std::cout << "---------------------------------------------" << std::endl;
 	std::cout << "|" << std::setw(10) << std::right << "Index" << "|"
 					 << std::setw(10) << std::right << "Fisrt name" << "|"
 					 << std::setw(10) << std::right << "Last name" << "|"
 					 << std::setw(10) << std::right << "Nick name" << "|" << std:: endl;
 	std::cout << "---------------------------------------------" << std::endl;
-
-
-
-	// for (int i = 0; i <= 7; i++)
-    // {
-    //     std::cout
-	// 			  << "|" << std::setw(10) << std::right << i + 1 << "|"
-    //               << std::setw(10) << std::right << this->contacts[i].get_firstname() << "|"
-    //               << std::setw(10) << std::right << this->contacts[i].get_lastname() << "|"
-    //               << std::setw(10) << std::right << this->contacts[i].get_nickname() << "|" << std::endl;
-    // }
-
+	for (int index = 0 ; index < i && i <= 8; index++)
+	{
+		std::cout << "|" << std::setw(10) << std::right << index + 1 << "|";
+		str = this->contacts[index].get_firstname();
+		cut_str(str);
+		std::cout << "|";
+		str = this->contacts[index].get_lastname();
+		cut_str(str);
+		std::cout << "|";
+		str = this->contacts[index].get_nickname();
+		cut_str(str);
+		std::cout << "|" << std::endl;
+	}
+	for (int index = 0 ; index <= 7 && i >= 9 ; index++)
+	{
+		std::cout << "|" << std::setw(10) << std::right << index + 1 << "|";
+		str = this->contacts[index].get_firstname();
+		cut_str(str);
+		std::cout << "|";
+		str = this->contacts[index].get_lastname();
+		cut_str(str);
+		std::cout << "|";
+		str = this->contacts[index].get_nickname();
+		cut_str(str);
+		std::cout << "|" << std::endl;
+	}
+	std::cout << "---------------------------------------------" << std::endl;
+	std::cout << "Select your index >> ";
+	open_data();
 }
 // void	PhoneBook::add(int i)
 // {
+
+
 // 	std::string	str;
-
-
 // 	std::cout << "Enter First Name : ";
 // 	getline(std::cin, str);
 // 	while (str.empty() || check_str(str) == 0)
