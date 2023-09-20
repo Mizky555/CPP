@@ -10,7 +10,7 @@ int	main()
 
 	while (1)
 	{
-		std::cout << "-------MENU-----" << std::endl;
+		std::cout << std::endl << "-------MENU-----" << std::endl;
 		std::cout << "1.ADD" << std::endl;
 		std::cout << "2.SEARCH" << std::endl;
 		std::cout << "3.EXIT" << std::endl;
@@ -28,7 +28,7 @@ int	main()
 		}
 		else if (input == "3")
 		{
-			std::cout << "exittttt" << std::endl;
+			std::cout << std::endl << "Good Buy" << std::endl << std::endl;
 			break;
 		}
 	}

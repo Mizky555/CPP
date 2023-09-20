@@ -96,16 +96,28 @@ void	cut_str(std::string str)
 	}
 }
 
-void	PhoneBook::open_data(void)
+void	PhoneBook::open_data(int i)
 {
-	std::string	index;
+	int	index = -1;
 	std::string str;
 
-	getline(std::cin, index);
-	str = this->contacts[index].get_lastname();
-	for (int i = 0 ; i <= 3 ; i++)
+	std::cout << "Select your index >> ";
+	getline(std::cin, str);
+	index = str[0] - '0';
+	while ((index >= 9 || index <= 0) || (i % 8) < index)
 	{
+		std::cout << "Select your index [1-8] >> ";
+		getline(std::cin, str);
+		index = str[0] - '0';
 	}
+	str = this->contacts[index - 1].get_firstname();
+	std::cout << "First Name : " << str << std::endl;
+	str = this->contacts[index - 1].get_lastname();
+	std::cout << "Last Name : " << str << std::endl;
+	str = this->contacts[index - 1].get_nickname();
+	std::cout << "Nick Name : " << str << std::endl;
+	str = this->contacts[index - 1].get_phonenumber();
+	std::cout << "Phonenumber : " << str << std::endl << std::endl;
 }
 
 void	PhoneBook::search(int i)
@@ -114,12 +126,12 @@ void	PhoneBook::search(int i)
 
 	if (i == 0)
 	{
-		std::cout << "*********" << std::endl;
+		std::cout << std::endl << "*********" << std::endl;
 		std::cout << "**Empty**" << std::endl;
-		std::cout << "*********" << std::endl;
+		std::cout << "*********" << std::endl << std::endl;
 		return ;
 	}
-	std::cout << "---------------------------------------------" << std::endl;
+	std::cout << std::endl << "---------------------------------------------" << std::endl;
 	std::cout << "|" << std::setw(10) << std::right << "Index" << "|"
 					 << std::setw(10) << std::right << "Fisrt name" << "|"
 					 << std::setw(10) << std::right << "Last name" << "|"
@@ -152,8 +164,7 @@ void	PhoneBook::search(int i)
 		std::cout << "|" << std::endl;
 	}
 	std::cout << "---------------------------------------------" << std::endl;
-	std::cout << "Select your index >> ";
-	open_data();
+	open_data(i);
 }
 // void	PhoneBook::add(int i)
 // {
