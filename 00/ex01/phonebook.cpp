@@ -2,6 +2,7 @@
 #include <cctype>
 #include <iomanip>
 #include <string>
+#include <sstream>
 #include "phonebook.hpp"
 
 
@@ -98,18 +99,28 @@ void	cut_str(std::string str)
 
 void	PhoneBook::open_data(int i)
 {
-	int	index = -1;
+	int	index;
 	std::string str;
+	std::stringstream sstr;
+	i = 0;
 
 	std::cout << "Select your index >> ";
 	getline(std::cin, str);
-	index = str[0] - '0';
-	while ((index >= 9 || index <= 0) || (i % 8) < index)
-	{
-		std::cout << "Select your index [1-8] >> ";
-		getline(std::cin, str);
-		index = str[0] - '0';
-	}
+	sstr << str;
+	sstr >> index;
+	std::cout << "check index instringtsream " << index << std::endl;
+
+
+	// getline(std::cin, str);
+	// if ()
+	// index = str[0] - '0';
+	// i = 0;
+	// while ((index >= 9 || index <= 0))
+	// {
+	// 	std::cout << "Select your index [1-8] >> ";
+	// 	getline(std::cin, str);
+	// 	index = str[0] - '0';
+	// }
 	str = this->contacts[index - 1].get_firstname();
 	std::cout << "First Name : " << str << std::endl;
 	str = this->contacts[index - 1].get_lastname();
