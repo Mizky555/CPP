@@ -37,6 +37,7 @@ void	PhoneBook::add(int i)
 	std::string	str;
 
 	std::cout << "Enter First Name : ";
+
 	getline(std::cin, str);
 	while (str.empty() || check_str(str) == 0)
 	{
@@ -49,7 +50,7 @@ void	PhoneBook::add(int i)
 	getline(std::cin, str);
 	while (str.empty() || check_str(str) == 0)
 	{
-		std::cout << "Enter Last Name Please (Only letters) : ";
+		std::cout << "Enter Last Name (Only letters) : ";
 		getline(std::cin, str);
 	}
 	this->contacts[i % 8].add_lastname(str);
@@ -58,7 +59,7 @@ void	PhoneBook::add(int i)
 	getline(std::cin, str);
 	while (str.empty() || check_str(str) == 0)
 	{
-		std::cout << "Enter Nick Please (Only letters) : ";
+		std::cout << "Enter Nick (Only letters) : ";
 		getline(std::cin, str);
 	}
 	this->contacts[i % 8].add_nickname(str);
@@ -67,12 +68,20 @@ void	PhoneBook::add(int i)
 	getline(std::cin, str);
 	while (str.empty() || check_digit(str) == 0)
 	{
-		std::cout << "Enter Phone Number Please (Only numbers) : ";
+		std::cout << "Enter Phone Number (Only numbers) : ";
 		getline(std::cin, str);
 	}
 	this->contacts[i % 8].add_phonenumber(str);
-}
 
+	std::cout << "Enter darkest secret : ";
+	getline(std::cin, str);
+	while (str.empty())
+	{
+		std::cout << "Enter darkest secret again : ";
+		getline(std::cin, str);
+	}
+	this->contacts[i % 8].add_secret(str);
+}
 void	cut_str(std::string str)
 {
 	int	len = str.length();
@@ -97,38 +106,38 @@ void	cut_str(std::string str)
 	}
 }
 
+
+
 void	PhoneBook::open_data(int i)
 {
 	int	index;
 	std::string str;
-	std::stringstream sstr;
+	std::stringstream  sstream;
 	i = 0;
 
 	std::cout << "Select your index >> ";
 	getline(std::cin, str);
-	sstr << str;
-	sstr >> index;
-	std::cout << "check index instringtsream " << index << std::endl;
+	if (str.size() == 1 && check_digit(str) == 1)
+	{
+		sstream << str;
+		sstream >> index;
+		if (index <= 0 || index >= 9)
+		{
+			std::cout << std::endl << "Invalid index" << std::endl;
+			return;
+		}
+		str = this->contacts[index - 1].get_firstname();
+		std::cout << "First Name : " << str << std::endl;
+		str = this->contacts[index - 1].get_lastname();
+		std::cout << "Last Name : " << str << std::endl;
+		str = this->contacts[index - 1].get_nickname();
+		std::cout << "Nick Name : " << str << std::endl;
+		str = this->contacts[index - 1].get_phonenumber();
+		std::cout << "Phonenumber : " << str << std::endl << std::endl;
 
-
-	// getline(std::cin, str);
-	// if ()
-	// index = str[0] - '0';
-	// i = 0;
-	// while ((index >= 9 || index <= 0))
-	// {
-	// 	std::cout << "Select your index [1-8] >> ";
-	// 	getline(std::cin, str);
-	// 	index = str[0] - '0';
-	// }
-	str = this->contacts[index - 1].get_firstname();
-	std::cout << "First Name : " << str << std::endl;
-	str = this->contacts[index - 1].get_lastname();
-	std::cout << "Last Name : " << str << std::endl;
-	str = this->contacts[index - 1].get_nickname();
-	std::cout << "Nick Name : " << str << std::endl;
-	str = this->contacts[index - 1].get_phonenumber();
-	std::cout << "Phonenumber : " << str << std::endl << std::endl;
+	}
+	else
+		std::cout << std::endl << "Invalid index" << std::endl;
 }
 
 void	PhoneBook::search(int i)

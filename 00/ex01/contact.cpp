@@ -21,6 +21,11 @@ void	Contact::add_phonenumber(std::string str)
 	this->phonenumber = str;
 }
 
+void	Contact::add_secret(std::string str)
+{
+	this->secret = str;
+}
+
 std::string	Contact::get_firstname(void)
 {
 	return (this->firstname);
@@ -39,4 +44,9 @@ std::string	Contact::get_nickname(void)
 std::string	Contact::get_phonenumber(void)
 {
 	return (Contact::phonenumber);
+}
+
+std::string	Contact::get_secret(void)
+{
+	return (Contact::secret);
 }
