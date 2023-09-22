@@ -37,7 +37,7 @@ void	PhoneBook::add(int i)
 	std::string	str;
 
 	std::cout << "Enter First Name : ";
-
+	getline(std::cin, str);
 	while (!std::cin.eof() && (str.empty() || check_str(str) == 0 ))
 	{
 		std::cout << "Enter First Name (Only letters) : ";

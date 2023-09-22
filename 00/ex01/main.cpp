@@ -11,22 +11,22 @@ int	main()
 	while (!std::cin.eof())
 	{
 		std::cout << std::endl << "-------MENU-----" << std::endl;
-		std::cout << "1.ADD" << std::endl;
-		std::cout << "2.SEARCH" << std::endl;
-		std::cout << "3.EXIT" << std::endl;
+		std::cout << "ADD" << std::endl;
+		std::cout << "SEARCH" << std::endl;
+		std::cout << "EXIT" << std::endl;
 		std::cout << "----------------" << std::endl;
-		std::cout << "Select menu number >> ";
+		std::cout << "Select menu >> ";
 		getline(std::cin, input);
-		if (input == "1")
+		if (input == "ADD")
 		{
 			book.add(i);
 			i++;
 		}
-		else if (input == "2")
+		else if (input == "SEARCH")
 		{
 			book.search(i);
 		}
-		else if (input == "3")
+		else if (input == "EXIT")
 		{
 			std::cout << std::endl << "Good Buy" << std::endl << std::endl;
 			break;
