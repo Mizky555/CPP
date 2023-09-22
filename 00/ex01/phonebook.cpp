@@ -173,7 +173,7 @@ void	PhoneBook::open_data(int i)
 	{
 		sstream << str;
 		sstream >> index;
-		if (index <= 0 || index >= 9 || (i <= 8 || index > i))
+		if ((index <= 0 || index >= 9) && (i <= 8 || index > i))
 		{
 			std::cout << std::endl << "Invalid index" << std::endl;
 			return;
