@@ -107,7 +107,7 @@ void	cut_str(std::string str)
 
 
 
-void	PhoneBook::open_data(void)
+void	PhoneBook::open_data(int i)
 {
 	int	index;
 	std::string str;
@@ -119,7 +119,7 @@ void	PhoneBook::open_data(void)
 	{
 		sstream << str;
 		sstream >> index;
-		if (index <= 0 || index >= 9)
+		if (index <= 0 || index >= 9 || (i <= 8 || index > i))
 		{
 			std::cout << std::endl << "Invalid index" << std::endl;
 			return;
@@ -184,7 +184,7 @@ void	PhoneBook::search(int i)
 		std::cout << "|" << std::endl;
 	}
 	std::cout << "---------------------------------------------" << std::endl;
-	open_data();
+	open_data(i);
 }
 // void	PhoneBook::add(int i)
 // {

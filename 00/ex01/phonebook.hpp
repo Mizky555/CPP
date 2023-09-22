@@ -14,7 +14,7 @@ class	PhoneBook
 		int	check_digit(std::string str);
 		void	search(int i);
 		void	print(std::string str);
-		void	open_data(void);
+		void	open_data(int i);
 
 };
 
