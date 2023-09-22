@@ -131,6 +131,8 @@ void	PhoneBook::open_data(void)
 		str = this->contacts[index - 1].get_nickname();
 		std::cout << "Nick Name : " << str << std::endl;
 		str = this->contacts[index - 1].get_phonenumber();
+		std::cout << "Darkest Secret : " << str << std::endl;
+		str = this->contacts[index - 1].get_secret();
 		std::cout << "Phonenumber : " << str << std::endl << std::endl;
 
 	}
