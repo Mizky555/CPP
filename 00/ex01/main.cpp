@@ -8,7 +8,7 @@ int	main()
 	PhoneBook	book;
 	int	i = 0;
 
-	while (1)
+	while (!std::cin.eof())
 	{
 		std::cout << std::endl << "-------MENU-----" << std::endl;
 		std::cout << "1.ADD" << std::endl;

@@ -38,8 +38,7 @@ void	PhoneBook::add(int i)
 
 	std::cout << "Enter First Name : ";
 
-	getline(std::cin, str);
-	while (str.empty() || check_str(str) == 0)
+	while (!std::cin.eof() && (str.empty() || check_str(str) == 0 ))
 	{
 		std::cout << "Enter First Name (Only letters) : ";
 		getline(std::cin, str);
@@ -48,7 +47,7 @@ void	PhoneBook::add(int i)
 
 	std::cout << "Enter Last Name : ";
 	getline(std::cin, str);
-	while (str.empty() || check_str(str) == 0)
+	while (!std::cin.eof() && (str.empty() || check_str(str) == 0))
 	{
 		std::cout << "Enter Last Name (Only letters) : ";
 		getline(std::cin, str);
@@ -57,7 +56,7 @@ void	PhoneBook::add(int i)
 
 	std::cout << "Enter Nick Name : ";
 	getline(std::cin, str);
-	while (str.empty() || check_str(str) == 0)
+	while (!std::cin.eof() && (str.empty() || check_str(str) == 0))
 	{
 		std::cout << "Enter Nick (Only letters) : ";
 		getline(std::cin, str);
@@ -66,7 +65,7 @@ void	PhoneBook::add(int i)
 
 	std::cout << "Enter Phone Number : ";
 	getline(std::cin, str);
-	while (str.empty() || check_digit(str) == 0)
+	while (!std::cin.eof() && (str.empty() || check_digit(str) == 0))
 	{
 		std::cout << "Enter Phone Number (Only numbers) : ";
 		getline(std::cin, str);
@@ -75,7 +74,7 @@ void	PhoneBook::add(int i)
 
 	std::cout << "Enter darkest secret : ";
 	getline(std::cin, str);
-	while (str.empty())
+	while (!std::cin.eof() && str.empty())
 	{
 		std::cout << "Enter darkest secret again : ";
 		getline(std::cin, str);
@@ -108,16 +107,15 @@ void	cut_str(std::string str)
 
 
 
-void	PhoneBook::open_data(int i)
+void	PhoneBook::open_data(void)
 {
 	int	index;
 	std::string str;
 	std::stringstream  sstream;
-	i = 0;
 
 	std::cout << "Select your index >> ";
 	getline(std::cin, str);
-	if (str.size() == 1 && check_digit(str) == 1)
+	if (str.size() == 1 && check_digit(str) == 1 && !std::cin.eof())
 	{
 		sstream << str;
 		sstream >> index;
@@ -184,7 +182,7 @@ void	PhoneBook::search(int i)
 		std::cout << "|" << std::endl;
 	}
 	std::cout << "---------------------------------------------" << std::endl;
-	open_data(i);
+	open_data();
 }
 // void	PhoneBook::add(int i)
 // {
