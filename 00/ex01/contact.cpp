@@ -1,4 +1,3 @@
-
 #include "contact.hpp"
 
 void	Contact::add_firstname(std::string str)

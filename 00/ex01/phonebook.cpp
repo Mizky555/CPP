@@ -5,8 +5,6 @@
 #include <sstream>
 #include "phonebook.hpp"
 
-
-
 int	PhoneBook::check_digit(std::string str)
 {
 	int	i = 0;
@@ -35,49 +33,105 @@ int	PhoneBook::check_str(std::string str)
 void	PhoneBook::add(int i)
 {
 	std::string	str;
+	int m;
 
-	std::cout << "Enter First Name : ";
-	getline(std::cin, str);
-	while (!std::cin.eof() && (str.empty() || check_str(str) == 0 ))
+	m = 0;
+	str = "";
+	while (!std::cin.eof() || check_str(str) == 0)
 	{
-		std::cout << "Enter First Name (Only letters) : ";
-		getline(std::cin, str);
+		if (m == 0)
+		{
+			m = 1;
+			std::cout << "Enter First Name : ";
+			getline(std::cin, str);
+		}
+		else if (str.empty() || check_str(str) == 0)
+		{
+			std::cout << "Enter First Name (Only letters) : ";
+			getline(std::cin, str);
+		}
+		else
+			break;
 	}
 	this->contacts[i % 8].add_firstname(str);
 
-	std::cout << "Enter Last Name : ";
-	getline(std::cin, str);
-	while (!std::cin.eof() && (str.empty() || check_str(str) == 0))
+	m = 0;
+	str = "";
+	while (!std::cin.eof() || check_str(str) == 0)
 	{
-		std::cout << "Enter Last Name (Only letters) : ";
-		getline(std::cin, str);
+		if (m == 0)
+		{
+			m = 1;
+			std::cout << "Enter Last Name : ";
+			getline(std::cin, str);
+		}
+		else if (str.empty() || check_str(str) == 0)
+		{
+			std::cout << "Enter Last Name (Only letters) : ";
+			getline(std::cin, str);
+		}
+		else
+			break;
 	}
 	this->contacts[i % 8].add_lastname(str);
 
-	std::cout << "Enter Nick Name : ";
-	getline(std::cin, str);
-	while (!std::cin.eof() && (str.empty() || check_str(str) == 0))
+	m = 0;
+	str = "";
+	while (!std::cin.eof() || check_str(str) == 0)
 	{
-		std::cout << "Enter Nick (Only letters) : ";
-		getline(std::cin, str);
+		if (m == 0)
+		{
+			m = 1;
+			std::cout << "Enter Nick Name : ";
+			getline(std::cin, str);
+		}
+		else if (str.empty() || check_str(str) == 0)
+		{
+			std::cout << "Enter Nick Name (Only letters) : ";
+			getline(std::cin, str);
+		}
+		else
+			break;
 	}
 	this->contacts[i % 8].add_nickname(str);
 
-	std::cout << "Enter Phone Number : ";
-	getline(std::cin, str);
-	while (!std::cin.eof() && (str.empty() || check_digit(str) == 0))
+	m = 0;
+	str = "";
+	while (!std::cin.eof() || check_digit(str) == 0)
 	{
-		std::cout << "Enter Phone Number (Only numbers) : ";
-		getline(std::cin, str);
+		if (m == 0)
+		{
+			m = 1;
+			std::cout << "Enter PhoneNumber : ";
+			getline(std::cin, str);
+		}
+		else if (str.empty() || check_digit(str) == 0)
+		{
+			std::cout << "Enter PhoneNumber (Only letters) : ";
+			getline(std::cin, str);
+		}
+		else
+			break;
 	}
 	this->contacts[i % 8].add_phonenumber(str);
 
-	std::cout << "Enter darkest secret : ";
-	getline(std::cin, str);
-	while (!std::cin.eof() && str.empty())
+	m = 0;
+	str = "";
+	while (!std::cin.eof())
 	{
-		std::cout << "Enter darkest secret again : ";
-		getline(std::cin, str);
+		if (m == 0)
+		{
+			m = 1;
+			std::cout << "Enter Darkest Secret : ";
+			getline(std::cin, str);
+		}
+		else if (str.empty())
+		{
+			std::cout << "Enter Darkest Secret again : ";
+			getline(std::cin, str);
+		}
+		else
+			break;
 	}
 	this->contacts[i % 8].add_secret(str);
 }
@@ -186,49 +240,3 @@ void	PhoneBook::search(int i)
 	std::cout << "---------------------------------------------" << std::endl;
 	open_data(i);
 }
-// void	PhoneBook::add(int i)
-// {
-
-
-// 	std::string	str;
-// 	std::cout << "Enter First Name : ";
-// 	getline(std::cin, str);
-// 	while (str.empty() || check_str(str) == 0)
-// 	{
-// 		std::cout << "Enter First Name (Only letters) : ";
-// 		getline(std::cin, str);
-// 	}
-// 	this->contacts[i].add_firstname(str);
-
-// 	std::cout << "Enter Last Name : ";
-// 	getline(std::cin, str);
-// 	while (str.empty() || check_str(str) == 0)
-// 	{
-// 		std::cout << "Enter Last Name Please (Only letters) : ";
-// 		getline(std::cin, str);
-// 	}
-// 	this->contacts[i].add_lastname(str);
-
-// 	std::cout << "Enter Nick Name : ";
-// 	getline(std::cin, str);
-// 	while (str.empty() || check_str(str) == 0)
-// 	{
-// 		std::cout << "Enter Nick Please (Only letters) : ";
-// 		getline(std::cin, str);
-// 	}
-// 	this->contacts[i].add_nickname(str);
-
-// 	std::cout << "Enter Phone Number : ";
-// 	getline(std::cin, str);
-// 	while (str.empty() || check_digit(str) == 0)
-// 	{
-// 		std::cout << "Enter Phone Number Please (Only numbers) : ";
-// 		getline(std::cin, str);
-// 	}
-// 	this->contacts[i].add_phonenumber(str);
-
-// 	// std::cout << this->contacts[0].get_firstname() << std::endl;
-// // 	std::cout << this->contacts[0].get_lastname() << std::endl;
-// // 	std::cout << this->contacts[0].get_nickname() << std::endl;
-// // 	std::cout << this->contacts[0].get_phonenumber() << std::endl;
-// }

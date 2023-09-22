@@ -7,7 +7,6 @@ class	PhoneBook
 {
 	private:
 		Contact contacts[8];
-		// int	index;
 	public:
 		void	add(int i);
 		int	check_str(std::string str);
