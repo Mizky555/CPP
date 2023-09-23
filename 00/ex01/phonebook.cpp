@@ -188,7 +188,6 @@ void	PhoneBook::open_data(int i)
 		std::cout << "Darkest Secret : " << str << std::endl;
 		str = this->contacts[index - 1].get_secret();
 		std::cout << "Phonenumber : " << str << std::endl << std::endl;
-
 	}
 	else
 		std::cout << std::endl << "Invalid index" << std::endl;
