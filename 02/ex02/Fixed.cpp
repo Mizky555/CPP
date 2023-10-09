@@ -116,32 +116,50 @@ Fixed Fixed::operator / (const Fixed & other) const
 }
 
 
-Fixed & Fixed::&operator ++ () //befor
+Fixed Fixed::operator ++ () //befor
 {
-
+	Fixed tmp(*this);
+	this->_fpoint++;
+	return (tmp);
 }
 
-Fixed & Fixed::&operator -- ()
+Fixed Fixed::operator -- ()
 {
-
+	Fixed tmp(*this);
+	this->_fpoint--;
+	return (tmp);
 }
 
 Fixed & Fixed::operator ++ (int) // increment/decrement
 {
-
+	this->_fpoint++;
+	return (*this);
 }
 
 Fixed & Fixed::operator -- (int) //after
 {
+	this->_fpoint--;
+	return (*this);
+}
+
+
+
+Fixed & Fixed::operator min (Fixed & s1, Fixed & s2)
+{
 
 }
 
-i = 1
+Fixed & Fixed::operator max (Fixed & s1, Fixed & s2)
+{
 
-printf( ++i ); i = 1
-printf( i ); i = 2
+}
 
-i = 1
+Fixed & Fixed::operator min (Fixed & s1, Fixed & s2)
+{
 
-printf( i++ ); i = 2
-printf( i ); i = 2
+}
+
+Fixed & Fixed::operator min (Fixed & s1, Fixed & s2)
+{
+
+}
