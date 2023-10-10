@@ -18,9 +18,10 @@ Fixed::Fixed(const Fixed &cpy)
 	*this = cpy;
 }
 
-void Fixed::operator = (const Fixed & other)
+Fixed & Fixed::operator = (Fixed const & other)
 {
 	this->_fpoint = other._fpoint;
+	return (*this);
 }
 
 int Fixed::getRawBits(void) const

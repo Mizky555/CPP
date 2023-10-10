@@ -18,10 +18,10 @@ Fixed::Fixed(const Fixed &cpy) //copy comstructor สร้างให้ค่
 	*this = cpy;
 }
 
-void Fixed::operator = (const Fixed & other)//assignement operator เซตค่าเท่ากับเท่ากับ (ต้องมี object ก่อน)
+Fixed & Fixed::operator = (Fixed const & other)
 {
-	// this->setRawBits(other.getRawBits());
 	this->_fpoint = other._fpoint;
+	return (*this);
 }
 
 int Fixed::getRawBits(void) const
