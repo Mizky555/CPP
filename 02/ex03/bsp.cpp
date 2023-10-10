@@ -14,6 +14,6 @@ bool bsp( Point const a, Point const b, Point const c, Point const point)
 	Fixed p = area(a, b, c);
 
 	if ((p1 + p2 + p3) == p)
-		return (0);
-	return (1);
+		return (1);
+	return (0);
 }

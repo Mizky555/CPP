@@ -35,10 +35,10 @@ class Fixed
 		Fixed operator - (const Fixed & other) const;
 		Fixed operator * (const Fixed & other) const;
 		Fixed operator / (const Fixed & other) const;
-		Fixed operator ++ ();
-		Fixed operator -- ();
-		Fixed operator ++ (int);
-		Fixed operator -- (int);
+		Fixed operator ++ (); //a++
+		Fixed operator -- (); //a--
+		Fixed operator ++ (int); //++a
+		Fixed operator -- (int); //--a
 		static Fixed const & min (const Fixed & s1, const Fixed & s2);
 		static Fixed const & max (const Fixed & s1, const Fixed & s2);
 		// static Fixed & min (Fixed & s1, Fixed & s2);
