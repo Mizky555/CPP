@@ -1,16 +1,20 @@
 #include <iostream>
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap(std::string name)
+: _name(name), _hp(10), _ep(10), _dmg(0)
+{
+	std::cout << "ClapTrap " << this->_name << " Create"<< std::endl;
+}
 ClapTrap::ClapTrap()
 : _name("ClapClap"), _hp(10), _ep(10), _dmg(0)
 {
 	std::cout << "ClapTrap Default Create"<< std::endl;
 }
-
-ClapTrap::ClapTrap(std::string name)
-: _name(name), _hp(10), _ep(10), _dmg(0)
+ClapTrap::ClapTrap(std::string name, int hp, int ep, int dmg)
+: _name(name), _hp(hp), _ep(ep), _dmg(dmg)
 {
-	std::cout << "ClapTrap Default Create"<< std::endl;
+	std::cout << "ClapTrap " << this->_name << " Create"<< std::endl;
 }
 ClapTrap::~ClapTrap()
 {
@@ -22,11 +26,11 @@ ClapTrap::ClapTrap(const ClapTrap &cpy)
 }
 ClapTrap & ClapTrap::operator = (ClapTrap const & other)
 {
-	this->_name = other._name;
-	this->_hp = other._hp;
-	this->_ep = other._ep;
-	this->_dmg = other._dmg;
-	return (*this);
+		this->_name = other._name;
+		this->_hp = other._hp;
+		this->_ep = other._ep;
+		this->_dmg = other._dmg;
+		return (*this);
 }
 void ClapTrap::attack(const std::string& target)
 {
@@ -63,4 +67,44 @@ void ClapTrap::beRepaired(unsigned int amount)
 	else
 		std::cout << "ClapTrap die" << std::endl;
 
+}
+
+std::string ClapTrap::getName() const
+{
+	return (this->_name);
+}
+
+int ClapTrap::getHp() const
+{
+	return (this->_hp);
+}
+
+int ClapTrap::getEp() const
+{
+	return (this->_ep);
+}
+
+int ClapTrap::getDmg() const
+{
+	return (this->_dmg);
+}
+
+void ClapTrap::setName(std::string name)
+{
+	this->_name = name;
+}
+
+void ClapTrap::setHp(int hp)
+{
+	this->_name = hp;
+}
+
+void ClapTrap::setEp(int ep)
+{
+	this->_name = ep;
+}
+
+void ClapTrap::setDmg(int dmg)
+{
+	this->_name = dmg;
 }
