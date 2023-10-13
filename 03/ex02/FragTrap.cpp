@@ -18,6 +18,7 @@ FragTrap::FragTrap(const std::string name)
 	std::cout << "FragTrap Trap Trap " << this->getName() << " Create"<< std::endl;
 }
 FragTrap::FragTrap(FragTrap const & cpy)
+: ClapTrap(cpy)
 {
 	*this = cpy;
 }

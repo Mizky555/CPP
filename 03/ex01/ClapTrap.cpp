@@ -96,15 +96,15 @@ void ClapTrap::setName(std::string name)
 
 void ClapTrap::setHp(int hp)
 {
-	this->_name = hp;
+	this->_hp = hp;
 }
 
 void ClapTrap::setEp(int ep)
 {
-	this->_name = ep;
+	this->_ep = ep;
 }
 
 void ClapTrap::setDmg(int dmg)
 {
-	this->_name = dmg;
+	this->_dmg = dmg;
 }

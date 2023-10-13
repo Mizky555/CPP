@@ -5,7 +5,7 @@
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap()
-: ScavTrap("Dia Dia Diamond_clap_name"), FragTrap("Dia Dia Diamond_clap_name"), _name("DiaDiaDiamond")
+: ClapTrap("Dia Dia Diamond", 100, 50, 30), ScavTrap(), FragTrap(), _name("DiaDiaDiamond")
 {
 	this->setName("Dia Dia Diamond_clap_name");
 	this->setHp(100);
@@ -19,7 +19,7 @@ DiamondTrap::~DiamondTrap()
 	std::cout << "DiamondTrap Trap Trap " << this->getName() << " Destroy "<< std::endl;
 }
 DiamondTrap::DiamondTrap(std::string name)
-: ScavTrap(name +  "_clap_name"), FragTrap(name +  "_clap_name"), _name(name)
+: ClapTrap("Dia Dia Diamond", 100, 50, 30), ScavTrap(), FragTrap(), _name(name)
 {
 	this->setHp(100);
 	this->setEp(50);
