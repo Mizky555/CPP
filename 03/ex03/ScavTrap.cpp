@@ -17,6 +17,7 @@ ScavTrap::ScavTrap(const std::string name)
 	std::cout << "ScavTrap Trap Trap " << this->getName() << " Create"<< std::endl;
 }
 ScavTrap::ScavTrap(ScavTrap const & cpy)
+: ClapTrap(cpy)
 {
 	*this = cpy;
 }
