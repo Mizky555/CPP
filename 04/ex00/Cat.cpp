@@ -5,7 +5,6 @@
 Cat::Cat()
 {
 	this->_type = "Cat";
-	this->_brain = new Brain();
 	std::cout << "Hello Cat"<< std::endl;
 }
 Cat::~Cat()
