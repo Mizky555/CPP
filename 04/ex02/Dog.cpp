@@ -16,13 +16,14 @@ Dog::~Dog()
 Dog::Dog(const Dog &cpy) : Animal(cpy)
 {
 	std::cout << "มะหม๋า" << std::endl;
-	*this = cpy;
 	this->_brain = new Brain(*cpy._brain);
+	*this = cpy;
 }
 Dog & Dog::operator = (Dog const & other)
 {
 		std::cout << "Dog=หมา" << std::endl;
 		this->_type = other._type;
+		this->_brain = other._brain;
 		return (*this);
 }
 void Dog::makeSound() const
