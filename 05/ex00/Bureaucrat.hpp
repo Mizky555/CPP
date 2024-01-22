@@ -15,14 +15,5 @@ public:
 	Bureaucrat & operator = (const Bureaucrat & other);
 };
 
-Bureaucrat::Bureaucrat(/* args */)
-{
-}
-
-Bureaucrat::~Bureaucrat()
-{
-}
-
-
 #endif
 
