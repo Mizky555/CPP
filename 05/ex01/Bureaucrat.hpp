@@ -2,6 +2,7 @@
 #	define BUREAUCRAT_CPP
 
 #include <iostream>
+class Form;
 
 class Bureaucrat
 {
@@ -20,6 +21,7 @@ public:
 	void setGrade(int grade);
 	void increment();
 	void decrement();
+	void signForm(Form & form);
 
 	class GradeTooHighException: public std::exception
 	{
