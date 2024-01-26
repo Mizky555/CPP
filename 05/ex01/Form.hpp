@@ -3,6 +3,8 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form
 {
 private:
@@ -22,7 +24,8 @@ public:
 	bool getSigned() const;
 	int getGradeEx() const;
 	int getGradeSign() const;
-	void beSigned(const Bureaucrat &cpy);
+
+	void beSigned(const Bureaucrat & bureaucrat);
 
 	class GradeTooHighException : public std::exception
 	{

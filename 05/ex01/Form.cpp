@@ -9,7 +9,7 @@ Form::~Form()
 {
 	std::cout << "Bye Bye Form" << std::endl;
 }
-Form::Form(std::string name, int gradeex, int gradesign): _name(name), _gradeex(gradeex), _gradesign(gradesign)
+Form::Form(std::string name, int gradeex, int gradesign): _name(name), _signed(0), _gradeex(gradeex), _gradesign(gradesign)
 {
 	if (gradeex > 150 || gradesign > 150)
 		throw GradeTooLowException();
@@ -47,12 +47,19 @@ int Form::getGradeSign() const
 	return (this->_gradesign);
 }
 
-void Form::signForm(const Bureaucrat & cpy)
-{
 
+void Form::beSigned(const Bureaucrat & bureaucrat)
+{
+	if (bureaucrat.getGrade() > this->_gradesign)
+		throw Form::GradeTooLowException();
+	this->_signed = 1;
 }
-
-void Form::beSigned(const Bureaucrat & cpy)
+std::ostream & operator << (std::ostream & stream, Form const & rhs)
 {
-
+	stream << rhs.getName() << " ";
+	if (rhs.getSigned() == 1)
+		stream << "signed" << " " << rhs.getGradeEx() << " " << rhs.getGradeSign();
+	else
+		stream << "unsigned" << " " << rhs.getGradeEx() << " " << rhs.getGradeSign();
+	return (stream);
 }
