@@ -1,52 +1,72 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-int main( void )
+// void	testShrub()
+// {
+// 	try
+// 	{
+// 		ShrubberyCreationForm	form("CPP");
+// 		Bureaucrat	obj("Grammy", 137);
+
+// 		std::cout << form << std::endl;
+// 		std::cout << obj << std::endl;
+// 		obj.signForm(form);
+// 		obj.executeForm(form);
+// 		std::cout << form << std::endl;
+// 	}
+// 	catch (std::exception & e)
+// 	{
+// 		std::cout << BRED << e.what() << RESET << std::endl;
+// 	}
+// }
+
+void	testRobot()
 {
-	// {
-	// 	std::cout << "------------------------------" << std::endl;
-	// 	Bureaucrat a("helllo", 1);
-	// 	Form b("first Form", 70, 30);
-	// 	b.beSigned(a);
-	// 	std::cout << b << std::endl;
-	// }
-	// {
-	// 	std::cout << "------------------------------" << std::endl;
-	// 	Bureaucrat a("helllo", 71);
-	// 	Form b("first Form", 70, 30);
-	// 	b.beSigned(a);
-	// 	std::cout << b << std::endl;
-	// }
+	try
 	{
-		std::cout << "------------------------------" << std::endl;
-		try {
-			Bureaucrat a("helllo", 71);
-			Form b("first Form", 0, 51);
-			std::cout << b << std::endl;
-		} catch(const std::exception& e) {
-			std::cerr << e.what() << std::endl;
-		}
+		RobotomyRequestForm	form("C++");
+		Bureaucrat	obj("Mos", 45);
+
+		std::cout << form << std::endl;
+		std::cout << obj << std::endl;
+		obj.signForm(form);
+		obj.executeForm(form);
+		std::cout << form << std::endl;
 	}
+	catch (std::exception & e)
 	{
-		std::cout << "------------------------------" << std::endl;
-		try {
-			Bureaucrat a("helllo", 1);
-			Form b("first Form", 0, 151);
-			b.beSigned(a);
-			std::cout << b << std::endl;
-		} catch(const std::exception& e) {
-			std::cerr << e.what() << std::endl;
-		}
+		std::cout << e.what() << std::endl;
 	}
-	{
-		std::cout << "------------------------------" << std::endl;
-		try {
-			Bureaucrat a("helllo", 100);
-			Form b("first Form", 1, 150);
-			b.beSigned(a);
-			std::cout << b << std::endl;
-		} catch(const std::exception& e) {
-			std::cerr << e.what() << std::endl;
-		}
-	}
+}
+
+// void	testPresiden()
+// {
+// 	try
+// 	{
+// 		PresidentialPardonForm	form("Code");
+// 		Bureaucrat	obj("Mai", 5);
+
+// 		std::cout << form << std::endl;
+// 		std::cout << obj << std::endl;
+// 		obj.signForm(form);
+// 		obj.executeForm(form);
+// 		std::cout << form << std::endl;
+// 	}
+// 	catch (std::exception & e)
+// 	{
+// 		std::cout << e.what() << std::endl;
+// 	}
+// }
+
+int	main(void)
+{
+	// testShrub();
+	// std::cout << "===========================================\n";
+	testRobot();
+	// std::cout << "===========================================\n";
+	// testPresiden();
+	// std::cout << "===========================================\n";
+	// return (0);
 }

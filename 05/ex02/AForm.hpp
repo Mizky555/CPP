@@ -1,4 +1,5 @@
-#pragma once
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include <iostream>
 #include "Bureaucrat.hpp"
@@ -43,6 +44,16 @@ public:
 			return ("->GradeTooLowException");
 		}
 	};
+	class NoSignException : public std::exception
+	{
+		public:
+			const char *what() const throw()
+			{
+				return ("->NoSignException");
+			}
+	};
+	virtual void execute(const Bureaucrat & execute) const = 0;
 };
 
 std::ostream &operator<<(std::ostream &out, AForm const &rhs);
+#endif
