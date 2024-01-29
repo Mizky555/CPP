@@ -1,6 +1,6 @@
 #pragma once
 
-#include "AForm.cpp"
+#include "AForm.hpp"
 #include <fstream>
 
 class RobotomyRequestForm : public AForm
