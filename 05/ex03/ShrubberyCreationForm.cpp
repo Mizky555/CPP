@@ -10,6 +10,11 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 	std::cout << "Bye Bye Shrubberry" << std::endl;
 }
 
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", 145, 137), _target(target)
+{
+
+}
+
 ShrubberyCreationForm & ShrubberyCreationForm::operator=(const ShrubberyCreationForm & cpy)
 {
 	AForm::operator=(cpy);

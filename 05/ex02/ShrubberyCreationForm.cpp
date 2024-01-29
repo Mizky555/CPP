@@ -10,6 +10,11 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 	std::cout << "Bye Bye Shrubberry" << std::endl;
 }
 
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", 145, 137), _target(target)
+{
+
+}
+
 ShrubberyCreationForm & ShrubberyCreationForm::operator=(const ShrubberyCreationForm & cpy)
 {
 	AForm::operator=(cpy);
@@ -30,6 +35,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat & execute) const
 	if (createFile.is_open() != 1)
 		throw ShrubberyCreationForm::CanNotOpen();
 	createFile << ASCII_TREES;
+	std::cout << "Hello Kitty---------------" << std::endl;
 	createFile.close();
 }
 

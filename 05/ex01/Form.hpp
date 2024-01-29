@@ -32,7 +32,7 @@ public:
 	public:
 		const char *what() const throw()
 		{
-			return ("->GradeTooHighException");
+			return ("GradeTooHighException");
 		}
 	};
 	class GradeTooLowException : public std::exception
@@ -40,7 +40,7 @@ public:
 	public:
 		const char *what() const throw()
 		{
-			return ("->GradeTooLowException");
+			return ("GradeTooLowException");
 		}
 	};
 };

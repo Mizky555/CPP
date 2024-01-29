@@ -3,70 +3,32 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-// void	testShrub()
-// {
-// 	try
-// 	{
-// 		ShrubberyCreationForm	form("CPP");
-// 		Bureaucrat	obj("Grammy", 137);
-
-// 		std::cout << form << std::endl;
-// 		std::cout << obj << std::endl;
-// 		obj.signForm(form);
-// 		obj.executeForm(form);
-// 		std::cout << form << std::endl;
-// 	}
-// 	catch (std::exception & e)
-// 	{
-// 		std::cout << BRED << e.what() << RESET << std::endl;
-// 	}
-// }
-
-void	testRobot()
+int	main(void)
 {
 	try
 	{
-		RobotomyRequestForm	form("C++");
-		Bureaucrat	obj("Mos", 45);
+		std::cout << "==========Shruby==========" << std::endl;
+		Bureaucrat	Shruby("Shruby", 16);//name, grade
+		ShrubberyCreationForm	formS("test_Shruby");//target(name,145,137)
+		Shruby.signForm(formS);
+		formS.execute(Shruby);
 
-		std::cout << form << std::endl;
-		std::cout << obj << std::endl;
-		obj.signForm(form);
-		obj.executeForm(form);
-		std::cout << form << std::endl;
+		std::cout << "==========Roboty==========" << std::endl;
+		Bureaucrat	Roboty("Roboty", 2);
+		RobotomyRequestForm formR("test_Roboty");//target(name,72,45)
+		Roboty.signForm(formR);
+		formR.execute(Roboty);
+
+		std::cout << "==========President==========" << std::endl;
+		Bureaucrat	President("President", 3);
+		PresidentialPardonForm formP("test_President");//target(name,25,5)
+		President.signForm(formP);
+		formP.execute(President);
+
+		std::cout << "=============================" << std::endl;
 	}
-	catch (std::exception & e)
+	catch(const std::exception& e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << '\n';
 	}
-}
-
-// void	testPresiden()
-// {
-// 	try
-// 	{
-// 		PresidentialPardonForm	form("Code");
-// 		Bureaucrat	obj("Mai", 5);
-
-// 		std::cout << form << std::endl;
-// 		std::cout << obj << std::endl;
-// 		obj.signForm(form);
-// 		obj.executeForm(form);
-// 		std::cout << form << std::endl;
-// 	}
-// 	catch (std::exception & e)
-// 	{
-// 		std::cout << e.what() << std::endl;
-// 	}
-// }
-
-int	main(void)
-{
-	// testShrub();
-	// std::cout << "===========================================\n";
-	testRobot();
-	// std::cout << "===========================================\n";
-	// testPresiden();
-	// std::cout << "===========================================\n";
-	// return (0);
 }

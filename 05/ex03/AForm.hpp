@@ -1,6 +1,8 @@
 #ifndef AFORM_HPP
 #define AFORM_HPP
 
+
+# include <exception>
 #include <iostream>
 #include "Bureaucrat.hpp"
 
@@ -16,11 +18,11 @@ private:
 
 public:
 	AForm();
-	~AForm();
 	AForm(std::string name, int gradeex, int gradesign);
 	AForm(const AForm &cpy);
 	AForm &operator=(const AForm &cpy);
 
+	virtual ~AForm();
 	std::string getName() const;
 	bool getSigned() const;
 	int getGradeEx() const;

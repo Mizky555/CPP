@@ -16,7 +16,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade): _name(name), _grade(grade)
 	if (this->getGrade() < 1)
 		throw GradeTooHighException();
 	else if (this->getGrade() > 150)
-		throw GradeTooHighException();
+		throw GradeTooLowException();
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat & cpy)

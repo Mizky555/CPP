@@ -1,72 +1,34 @@
 #include "Bureaucrat.hpp"
+#include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
-
-// void	testShrub()
-// {
-// 	try
-// 	{
-// 		ShrubberyCreationForm	form("CPP");
-// 		Bureaucrat	obj("Grammy", 137);
-
-// 		std::cout << form << std::endl;
-// 		std::cout << obj << std::endl;
-// 		obj.signForm(form);
-// 		obj.executeForm(form);
-// 		std::cout << form << std::endl;
-// 	}
-// 	catch (std::exception & e)
-// 	{
-// 		std::cout << BRED << e.what() << RESET << std::endl;
-// 	}
-// }
-
-void	testRobot()
-{
-	try
-	{
-		RobotomyRequestForm	form("C++");
-		Bureaucrat	obj("Mos", 45);
-
-		std::cout << form << std::endl;
-		std::cout << obj << std::endl;
-		obj.signForm(form);
-		obj.executeForm(form);
-		std::cout << form << std::endl;
-	}
-	catch (std::exception & e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-}
-
-// void	testPresiden()
-// {
-// 	try
-// 	{
-// 		PresidentialPardonForm	form("Code");
-// 		Bureaucrat	obj("Mai", 5);
-
-// 		std::cout << form << std::endl;
-// 		std::cout << obj << std::endl;
-// 		obj.signForm(form);
-// 		obj.executeForm(form);
-// 		std::cout << form << std::endl;
-// 	}
-// 	catch (std::exception & e)
-// 	{
-// 		std::cout << e.what() << std::endl;
-// 	}
-// }
+#include "Intern.hpp"
 
 int	main(void)
 {
-	// testShrub();
-	// std::cout << "===========================================\n";
-	testRobot();
-	// std::cout << "===========================================\n";
-	// testPresiden();
-	// std::cout << "===========================================\n";
-	// return (0);
+	Intern	someRandomIntern;
+
+	AForm*	rrf;
+	rrf = someRandomIntern.makeForm("kingdom ocean", "Bender");
+
+	std::cout << "------------------------------------------\n";
+
+	rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+	std::cout << *rrf << std::endl;
+	delete rrf;
+	
+	std::cout << "------------------------------------------\n";
+	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	std::cout << *rrf << std::endl;
+	delete rrf;
+
+	std::cout << "------------------------------------------\n";
+	rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+	std::cout << *rrf << std::endl;
+	Bureaucrat	obj("Meow", 2);
+	obj.signForm(*rrf);
+	obj.executeForm(*rrf);
+	std::cout << *rrf << std::endl;
+	delete rrf;
+	return (0);
 }
