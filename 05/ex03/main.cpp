@@ -8,22 +8,23 @@ int	main(void)
 {
 	Intern	someRandomIntern;
 
+	std::cout << "---------------------NoForm---------------------\n";
 	AForm*	rrf;
 	rrf = someRandomIntern.makeForm("kingdom ocean", "Bender");
 
-	std::cout << "------------------------------------------\n";
+	std::cout << "---------------------shrubbery---------------------\n";
 
 	rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
 	std::cout << *rrf << std::endl;
 	delete rrf;
-	
-	std::cout << "------------------------------------------\n";
+
+	std::cout << "---------------------robotomy---------------------\n";
 	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 	std::cout << *rrf << std::endl;
 	delete rrf;
 
-	std::cout << "------------------------------------------\n";
-	rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+	std::cout << "----------------------Presidentail--------------------\n";
+	rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
 	std::cout << *rrf << std::endl;
 	Bureaucrat	obj("Meow", 2);
 	obj.signForm(*rrf);
