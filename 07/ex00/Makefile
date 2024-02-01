@@ -1,8 +1,7 @@
-NAME = convert
+NAME = whatever
 CC = c++
 FLAGS = -std=c++98 -Wall -Wextra -Werror
-SRCS = main.cpp \
-		ScalarConverter.cpp
+SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
