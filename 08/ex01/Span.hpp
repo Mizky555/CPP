@@ -2,9 +2,13 @@
 # define SPAN_HPP
 
 #include <iostream>
+#include <exception>
 
 class Span
 {
+	private:
+		unsigned int _size;
+		std::vector<int> _data;
 	public:
 		Span();
 		~Span();
@@ -15,10 +19,31 @@ class Span
 		void addNumber(int number);
 		unsigned int shortestSpan();
 		unsigned int longestSpan();
-
-		private:
-			unsigned int _size;
-			std::vector<int> _vec;
+		std::vector<int> getData();
+		class AlreadyThisNumber : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("Already this number");
+				}
+		};
+		class NumberTooMuch : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("Number Too Much");
+				}
+		};
+		class NumberTooLittle : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("Number Too Little");
+				}
+		};
 };
 
 #endif

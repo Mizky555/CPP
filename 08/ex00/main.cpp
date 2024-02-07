@@ -26,3 +26,28 @@ int main() {
     }
     return 0;
 }
+
+// int main()
+// {
+//     std::vector<std::string> s;
+//     s.push_back("Hello");
+//     s.push_back("my");
+//     s.push_back("name");
+//     s.push_back("is");
+//     s.push_back("Opal");
+//     // std::cout << "size " << s.size() << std::endl;
+//     // for (unsigned long i = 0 ; i < s.size() ; i++)
+//     //     std::cout << s[i] << " ";
+//     // std::cout << "." << std::endl;
+
+//     s.erase(s.begin() + 0);
+//     for (unsigned long i = 0 ; i < s.size() ; i++)
+//         std::cout << s[i] << " ";
+//     std::cout << "." << std::endl;
+
+//     s.pop_back();
+//     for (unsigned long i = 0 ; i < s.size() ; i++)
+//         std::cout << s[i] << " ";
+//     std::cout << "." << std::endl;
+//     return (0);
+// }
