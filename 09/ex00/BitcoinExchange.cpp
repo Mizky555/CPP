@@ -12,8 +12,6 @@ void BitcoinExchange::check_add_csv()
 		std::string line;
 		while (getline(readFile, line))
 		{
-			// std::cout << "line " << line[0] << std::endl;
-
 			add_data(line);
 		}
 		// for (std::map<std::string, float>::iterator it = _data.begin(); it != _data.end(); ++it)
@@ -38,37 +36,17 @@ void BitcoinExchange::check_txt(std::string argv)
 			if (firstline == 0)
 			{
 				firstline = 1;
-				if (line == "date | value")
-					continue;
+				if (line != "date | value")
+					std::cout << "Error: bad input => " << line << std::endl;
+			}
+			else if (check_input(line) == 0)
+			{
+				std::cout << "Error: bad input => " << line << std::endl;
 			}
 			else
-				std::cout << "Error: bad input => " << line << std::endl;
-			for (int i = 0 ; line[i] ; i++)
 			{
-				// std::cout << line[10] << line[11] << line[12] << "---" << std::endl;
-				if (line[4] != '-' || line[7] != '-')
-				{
-					std::cout << "1Error: bad input => " << line << std::endl;
-					break;
-				}
-				else if (line[10] != ' ' || line[11] != '|' || line[12] != ' ')
-				{
-					std::cout << "2Error: bad input => " << line << std::endl;
-					break;
-				}
-				else if (check_date(line) == 0)
-				{
-					std::cout << "3Error: bad input => " << line << std::endl;
-					break;
-				}
-				else
-				{
-					std::cout << "OK " << line << std::endl;
-					break;
-				}
+				std::cout << "OK " << line << std::endl;
 			}
-				// break;
-
 		}
 	}
 	// (void) argv;
@@ -86,10 +64,17 @@ void BitcoinExchange::check_txt(std::string argv)
 
 }
 
-int BitcoinExchange::check_date(std::string line)
+int BitcoinExchange::check_input(std::string line)
 {
 	// int date;
-
+	if (line[4] != '-' || line[7] != '-')
+	{
+		return (0);
+	}
+	else if (line[10] != ' ' || line[11] != '|' || line[12] != ' ')
+	{
+		return (0);
+	}
 	for (int i = 0 ; i <= 3 ; i++)
 	{
 		// std::cout << "==== " << line[i] << std::endl;

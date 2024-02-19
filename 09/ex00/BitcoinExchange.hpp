@@ -21,7 +21,7 @@ class BitcoinExchange
 		void check_add_csv();
 		void add_data(std::string line);
 		void check_txt(std::string line);
-		int check_date(std::string line);
+		int check_input(std::string line);
 		int max_year();
 		const std::map<std::string, float> &getData() const;
 };
