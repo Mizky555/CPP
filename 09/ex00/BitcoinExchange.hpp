@@ -24,6 +24,8 @@ class BitcoinExchange
 		int check_input(std::string line);
 		int max_year();
 		const std::map<std::string, float> &getData() const;
+		int change_coin(std::string line);
+		int find_coin(std::string line);
 };
 #endif
 

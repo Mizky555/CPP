@@ -45,7 +45,9 @@ void BitcoinExchange::check_txt(std::string argv)
 			}
 			else
 			{
-				std::cout << "OK " << line << std::endl;
+				// find_coin(line);
+				std::cout << line.substr(0, 13) << find_coin(line) << std::endl;
+				break;
 			}
 		}
 	}
@@ -63,6 +65,51 @@ void BitcoinExchange::check_txt(std::string argv)
 
 
 }
+
+int BitcoinExchange::find_coin(std::string line)
+{
+	std::map<std::string, float>::iterator it = _data.begin();
+	int year_data, month_data, day_data;
+	int year_find, month_find, day_find;
+
+	float coin = it->second;
+	while (it != _data.end())
+	{
+		std::cout << "date->first" << it->second << " line " << line << std::endl;
+		year_data = atoi((it->first).substr(0,4).c_str());
+		month_data = atoi((it->first).substr(5,2).c_str());
+		day_data = atoi((it->first).substr(8,2).c_str());
+		year_find = atoi((line.substr(0,4)).c_str());
+		month_find = atoi((line.substr(5,2)).c_str());
+		day_find = atoi((line.substr(8,2)).c_str());
+		if (day_find <= day_data && month_find <= month_data && year_find <= year_data)
+		{
+			coin = it->second;
+		}
+		it++;
+	}
+			std::cout << "day " << line.substr(13) << " coin " << coin << std::endl;
+	return (coin * atof((line.substr(13)).c_str()));
+
+
+
+	return(0);
+}
+
+// int BitcoinExchange::change_coin(std::string line)
+// {
+// 	float coin;
+// 	std::map<std::string, float>::iterator it = _data.begin();
+
+// 	coin = it->second;
+// 	// std::cout << "test " << line.substr(0,10) << "|" << std::endl;
+// 	while (it != _data.end())
+// 	{
+// 		if (it->first == line.substr(0,10))
+// 			coin = it->second;
+// 	}
+// 	return (0);
+// }
 
 int BitcoinExchange::check_input(std::string line)
 {
