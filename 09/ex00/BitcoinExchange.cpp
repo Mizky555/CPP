@@ -45,8 +45,7 @@ void BitcoinExchange::check_txt(std::string argv)
 			}
 			else
 			{
-				// find_coin(line);
-				std::cout << line.substr(0, 13) << find_coin(line) << std::endl;
+				std::cout << "~~~~~~~~~~~~~~~~~~~~" << line.substr(0, 13) << find_coin(line) << std::endl;
 				break;
 			}
 		}
@@ -75,20 +74,36 @@ int BitcoinExchange::find_coin(std::string line)
 	float coin = it->second;
 	while (it != _data.end())
 	{
-		std::cout << "date->first" << it->second << " line " << line << std::endl;
+		// std::cout << "date->first" << it->second << " line " << line << std::endl;
 		year_data = atoi((it->first).substr(0,4).c_str());
 		month_data = atoi((it->first).substr(5,2).c_str());
 		day_data = atoi((it->first).substr(8,2).c_str());
 		year_find = atoi((line.substr(0,4)).c_str());
 		month_find = atoi((line.substr(5,2)).c_str());
 		day_find = atoi((line.substr(8,2)).c_str());
-		if (day_find <= day_data && month_find <= month_data && year_find <= year_data)
+			std::cout << std::endl << "year_date = " << year_data << std::endl;
+			std::cout << "month_date = " << month_data << std::endl;
+			std::cout << "day_date = " << day_data << std::endl;
+			std::cout << "-----------------" << std::endl;
+			std::cout << "year_find = " << year_find << std::endl;
+			std::cout << "month_find = " << month_find << std::endl;
+			std::cout << "day_find = " << day_find << std::endl;
+		if ((day_find >= day_data) && (month_find >= month_data) && (year_find >= year_data))
 		{
+
 			coin = it->second;
+			std::cout << "coin =============> " << coin << std::endl << std::endl << std::endl;
 		}
+
 		it++;
 	}
-			std::cout << "day " << line.substr(13) << " coin " << coin << std::endl;
+			// std::cout << "month_date = " << month_data << std::endl;
+			// std::cout << "day_date = " << day_data << std::endl;
+			// std::cout << "-----------------" << std::endl;
+			// std::cout << "year_find = " << year_find << std::endl;
+			// std::cout << "month_find = " << month_find << std::endl;
+			// std::cout << "day_find = " << day_find << std::endl << std::endl << std::endl;
+
 	return (coin * atof((line.substr(13)).c_str()));
 
 
