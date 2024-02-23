@@ -39,7 +39,7 @@ void BitcoinExchange::check_txt(std::string argv)
 			}
 			else if (is_all_whitespace(line) == 1)
 				continue;
-			else if (check_input(line) == 0)
+			else if (check_date_txt(line) == 0)
 				std::cout << "Error: bad input => " << line << std::endl;
 			else if (check_coin_txt(line.substr(13)) != "OK")
 				std::cout << "Error: " << check_coin_txt(line.substr(13)) << std::endl;
@@ -54,6 +54,7 @@ void BitcoinExchange::check_txt(std::string argv)
 
 std::string BitcoinExchange::check_coin_txt(std::string coin)
 {
+	// std::string badinput;
 	std::stringstream ss(coin);
 	float fcoin;
 	ss >> fcoin;
@@ -62,8 +63,39 @@ std::string BitcoinExchange::check_coin_txt(std::string coin)
 		return ("not a positive number.");
 	else if (fcoin >= 1001)
 		return ("too large a number.");
+	else if (is_all_num(coin) == 0)
+		return ("bad input => " + coin);
 	return ("OK");
 }
+
+int BitcoinExchange::is_all_whitespace(std::string str)
+{
+	for (std::string::iterator it = str.begin() ; it != str.end() ; it++)
+	{
+		if (std::isspace((char)*it) == 0)
+			return (0);
+	}
+	// for (size_t i = 0 ; i < str.length() ; i++)
+	// {
+	// 	if (std::isspace(str[i]) == 0)
+	// 		return (0);
+	// }
+	return (1);
+}
+
+int BitcoinExchange::is_all_num(std::string str)
+{
+	size_t i = 0;
+	while (i < str.length())
+	{
+		if ((std::isdigit(str[i]) != 1) && str[i] != '.')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+
 
 float BitcoinExchange::find_coin(std::string line)
 {
@@ -102,17 +134,8 @@ float BitcoinExchange::find_coin(std::string line)
 }
 
 
-int BitcoinExchange::is_all_whitespace(std::string str)
-{
-	for (std::string::iterator it = str.begin() ; it != str.end() ; it++)
-	{
-		if (std::isspace((char)*it) == 0)
-			return (0);
-	}
-	return (1);
-}
 
-int BitcoinExchange::check_input(std::string line)
+int BitcoinExchange::check_date_txt(std::string line)
 {
 	if (line[4] != '-' || line[7] != '-')
 		return (0);
