@@ -6,7 +6,9 @@
 #include <fstream>
 #include <sstream>
 #include <map>
-
+#include <cstdlib>
+#include <cstring>
+#include <cctype>
 
 class BitcoinExchange
 {
@@ -25,7 +27,9 @@ class BitcoinExchange
 		int max_year();
 		const std::map<std::string, float> &getData() const;
 		int change_coin(std::string line);
-		int find_coin(std::string line);
+		float find_coin(std::string line);
+		std::string check_coin_txt(std::string coin);
+		int is_all_whitespace(std::string str);
 };
 #endif
 
