@@ -1,9 +1,5 @@
 #include "RPN.hpp"
 
-int check_type(std::string argv)
-{
-    
-}
 
 int main(int argc, char **argv)
 {
@@ -17,11 +13,8 @@ int main(int argc, char **argv)
     // std::stringstream ss(argv[1]);
     // std::string str;
     // ss >> str;
-    int n = check_type(argv[1]);
-    while (argv[1])
-    {
-
-    }
+    if (argv[1] == NULL || argv[1][0] == '\0')
+        std::cout << "error" << std::endl;
     return (1);
     
 }
